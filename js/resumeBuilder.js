@@ -11,7 +11,7 @@ This is empty on purpose! Your code to build the resume will go here.
      "location" : "Gardner, Massachusetts"
    },
    "welcomeMessge" : "Welcome to Scott's Resume",
-   "skills" : [""],
+   "skills" : ["Wifi design and management", "Windows, OS X, and Linux platforms"],
    "biopic" : "none at the moment"
  };
 
@@ -74,3 +74,28 @@ This is empty on purpose! Your code to build the resume will go here.
     "images" : ["https://github.com/sctthffnr/survivor"]
    }
  ];
+
+ if (bio.skills) {
+   $('#header').append(HTMLskillsStart);
+   var skills = HTMLskills.replace('%data%', bio.skills);
+   $('#skills').append(skills);
+ }
+
+ function displayWork() {
+   work.jobs.forEach(function(job) {
+     $('#workExperience').append(HTMLworkStart);
+     formattedEmployer = HTMLworkEmployer.replace('%data%', job.employer);
+     formattedTitle = HTMLworkTitle.replace('%data%', job.title);
+     formattedDates = HTMLworkDates.replace('%data%', job.dates);
+     formattedLocation  = HTMLworkLocation.replace('%data%', job.location);
+     formattedDescription = HTMLworkDescription.replace('%data%', job.description);
+
+     var $work_entry = $('.work-entry:last');
+     $work_entry.append(formattedEmployer + formattedTitle);
+     $work_entry.append(formattedDates);
+     $work_entry.append(formattedLocation);
+     $work_entry.append(formattedDescription);
+   });
+ }
+
+ displayWork();
