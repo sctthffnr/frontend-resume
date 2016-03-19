@@ -1,6 +1,7 @@
 /*
 This is empty on purpose! Your code to build the resume will go here.
  */
+
  var bio = {
    "name" : "Scott Heffner",
    "role" : "Network and Systems Administrator",
@@ -10,9 +11,25 @@ This is empty on purpose! Your code to build the resume will go here.
      "github" : "sctthffnr",
      "location" : "Gardner, Massachusetts"
    },
-   "welcomeMessge" : "Welcome to Scott's Resume",
-   "skills" : ["Wifi design and management", "Windows, OS X, and Linux platforms"],
-   "biopic" : "none at the moment"
+   "welcomeMessage" : "Experienced IT Professional",
+   "skills" : ["Programming Lanaguages: HTML, CSS, Javascript, Ruby, Bash",
+               "Platforms: Linux, Windows, OS X, iOS",
+               "Networking: TCP/IP, 802.11 protocols"],
+   "biopic" : "images/biopic.jpg",
+   "display" : function() {
+     $('#header').prepend(HTMLheaderRole.replace('%data%', bio.role));
+     $('#header').prepend(HTMLheaderName.replace('%data%', bio.name));
+     $('#topContacts').append(HTMLmobile.replace('%data%', bio.contacts.mobile));
+     $('#topContacts').append(HTMLemail.replace('%data%', bio.contacts.email));
+     $('#topContacts').append(HTMLgithub.replace('%data%', bio.contacts.github));
+     $('#topContacts').append(HTMLlocation.replace('%data%', bio.contacts.location));
+     $('#header').append(HTMLbioPic.replace('%data%', bio.biopic));
+     $('#header').append(HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage));
+     $('#header').append(HTMLskillsStart);
+     bio.skills.forEach(function(skill){
+       $('#skills-h3:last').append(HTMLskills.replace('%data%', skill));
+     });
+   }
  };
 
  var education = {
@@ -75,11 +92,7 @@ This is empty on purpose! Your code to build the resume will go here.
    }
  ];
 
- if (bio.skills) {
-   $('#header').append(HTMLskillsStart);
-   var skills = HTMLskills.replace('%data%', bio.skills);
-   $('#skills').append(skills);
- }
+bio.display();
 
  function displayWork() {
    work.jobs.forEach(function(job) {
@@ -99,3 +112,31 @@ This is empty on purpose! Your code to build the resume will go here.
  }
 
  displayWork();
+
+$('#main').append(internationalizeButton);
+
+function inName() {
+  $('#header').append(HTMLheaderName);
+  var names = bio.name.split(" ");
+  return names[0] + " " + names[1].toUpperCase();
+}
+
+projects.display = function() {
+  projects.forEach(function(project) {
+    $('#projects').append(HTMLprojectStart);
+    formattedTitle = HTMLprojectTitle.replace('%data%', project.title);
+    formattedDates = HTMLprojectDates.replace('%data%', project.dates);
+    formattedDescription = HTMLprojectDescription.replace('%data%', project.description);
+    formattedImage = HTMLprojectImage.replace('%data%', project.images);
+
+    var $projects = $('.project-entry:last');
+    $projects.append(formattedTitle);
+    $projects.append(formattedDates);
+    $projects.append(formattedDescription);
+    $projects.append(formattedImage);
+  });
+};
+
+projects.display();
+
+$('#mapdiv').append(googleMap);
