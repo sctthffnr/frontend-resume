@@ -97,15 +97,39 @@ This is empty on purpose! Your code to build the resume will go here.
    }
  };
 
- var projects = [
+ var projects = {
+   "projects" : [
    {
      "title" : "Survivor Simulation",
      "dates" : "2016",
      "description" : "A simulation of the television show survivor, " +
                      "written in Ruby",
-    "images" : ["https://github.com/sctthffnr/survivor"]
-   }
- ];
+    "images" : ["images/survivor-2.jpg", "images/survivor.jpg"]
+  },
+  {
+    "title" : "Online Portfolio",
+    "dates" : "2016",
+    "description" : "An online portfolio of my Udacity frontend projects",
+    "images" : ["images/portfolio-1.jpg", "images/portfolio-2.jpg"]
+  }
+ ],
+ "display" : function display() {
+   projects.projects.forEach(function(project) {
+     $('#projects').append(HTMLprojectStart);
+     formattedTitle = HTMLprojectTitle.replace('%data%', project.title);
+     formattedDates = HTMLprojectDates.replace('%data%', project.dates);
+     formattedDescription = HTMLprojectDescription.replace('%data%', project.description);
+
+     var $projects = $('.project-entry:last');
+     $projects.append(formattedTitle);
+     $projects.append(formattedDates);
+     $projects.append(formattedDescription);
+     project.images.forEach(function(image) {
+       $projects.append(HTMLprojectImage.replace('%data%', image));
+     });
+    });
+  }
+};
 
 bio.display();
 work.display();
@@ -118,21 +142,7 @@ function inName() {
   return names[0] + " " + names[1].toUpperCase();
 }
 
-projects.display = function() {
-  projects.forEach(function(project) {
-    $('#projects').append(HTMLprojectStart);
-    formattedTitle = HTMLprojectTitle.replace('%data%', project.title);
-    formattedDates = HTMLprojectDates.replace('%data%', project.dates);
-    formattedDescription = HTMLprojectDescription.replace('%data%', project.description);
-    formattedImage = HTMLprojectImage.replace('%data%', project.images);
-
-    var $projects = $('.project-entry:last');
-    $projects.append(formattedTitle);
-    $projects.append(formattedDates);
-    $projects.append(formattedDescription);
-    $projects.append(formattedImage);
-  });
-};
+projects.display =
 
 projects.display();
 
