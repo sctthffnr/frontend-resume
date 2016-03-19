@@ -76,10 +76,25 @@ This is empty on purpose! Your code to build the resume will go here.
        "title": "Network and Systems Administrator",
        "location": "Carlisle, MA",
        "dates": "in progress",
-       "description": "Manage network and systems for the Carlisle School district"
+       "description": "Manage configuration, deployment, and management of network and compute systems"
      }
    ],
-   "display": "placeholder"
+   "display": function display() {
+     work.jobs.forEach(function(job) {
+       $('#workExperience').append(HTMLworkStart);
+       formattedEmployer = HTMLworkEmployer.replace('%data%', job.employer);
+       formattedTitle = HTMLworkTitle.replace('%data%', job.title);
+       formattedDates = HTMLworkDates.replace('%data%', job.dates);
+       formattedLocation  = HTMLworkLocation.replace('%data%', job.location);
+       formattedDescription = HTMLworkDescription.replace('%data%', job.description);
+
+       var $work_entry = $('.work-entry:last');
+       $work_entry.append(formattedEmployer + formattedTitle);
+       $work_entry.append(formattedDates);
+       $work_entry.append(formattedLocation);
+       $work_entry.append(formattedDescription);
+     });
+   }
  };
 
  var projects = [
@@ -93,25 +108,7 @@ This is empty on purpose! Your code to build the resume will go here.
  ];
 
 bio.display();
-
- function displayWork() {
-   work.jobs.forEach(function(job) {
-     $('#workExperience').append(HTMLworkStart);
-     formattedEmployer = HTMLworkEmployer.replace('%data%', job.employer);
-     formattedTitle = HTMLworkTitle.replace('%data%', job.title);
-     formattedDates = HTMLworkDates.replace('%data%', job.dates);
-     formattedLocation  = HTMLworkLocation.replace('%data%', job.location);
-     formattedDescription = HTMLworkDescription.replace('%data%', job.description);
-
-     var $work_entry = $('.work-entry:last');
-     $work_entry.append(formattedEmployer + formattedTitle);
-     $work_entry.append(formattedDates);
-     $work_entry.append(formattedLocation);
-     $work_entry.append(formattedDescription);
-   });
- }
-
- displayWork();
+work.display();
 
 $('#main').append(internationalizeButton);
 
