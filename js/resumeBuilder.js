@@ -53,13 +53,39 @@ This is empty on purpose! Your code to build the resume will go here.
    ],
    "onlineCourses": [
      {
-        "title": "Beginning Ruby",
+        "title": "Beginning Ruby Nanodegree",
         "school": "Udacity",
         "date": "2016",
         "url": "www.udacity.com"
+     },
+     {
+       "title": "Front-End Web Developer Nanodegree",
+       "school": "Udacity",
+       "date": "2016",
+       "url": "www.udacity.com"
      }
    ],
-   "display": "placeholder"
+   "display": function display() {
+     education.schools.forEach(function(school) {
+       $('#education').append(HTMLschoolStart);
+       var $edEntry = $('.education-entry:last');
+       $edEntry.append(HTMLschoolName.replace('%data%', school.name));
+       $edEntry.append(HTMLschoolLocation.replace('%data%', school.location));
+       $edEntry.append(HTMLschoolDates.replace('%data%', school.dates));
+       $edEntry.append(HTMLschoolDegree.replace('%data%', school.degree));
+       school.majors.forEach(function(major) {
+         $edEntry.append(HTMLschoolMajor.replace('%data%', major));
+       });
+     });
+     $('#education').append(HTMLonlineClasses);
+     education.onlineCourses.forEach(function(course){
+       var $online = $('#education h3');
+       $online.append(HTMLonlineTitle.replace('%data%', course.title));
+       $online.append(HTMLonlineSchool.replace('%data%', course.school));
+       $online.append(HTMLschoolDates.replace('%data%', course.date));
+       $online.append(HTMLonlineURL.replace('%data%', course.url));
+     });
+   }
  };
 
  var work = {
@@ -133,17 +159,7 @@ This is empty on purpose! Your code to build the resume will go here.
 
 bio.display();
 work.display();
-
-$('#main').append(internationalizeButton);
-
-function inName() {
-  $('#header').append(HTMLheaderName);
-  var names = bio.name.split(" ");
-  return names[0] + " " + names[1].toUpperCase();
-}
-
-projects.display =
-
 projects.display();
+education.display();
 
 $('#mapdiv').append(googleMap);
