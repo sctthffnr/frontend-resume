@@ -79,9 +79,9 @@ This is empty on purpose! Your code to build the resume will go here.
          $edEntry.append(HTMLschoolMajor.replace('%data%', major));
        });
      });
-     $('#education').append(HTMLonlineClasses);
+     $('.education-entry:last').append(HTMLonlineClasses);
      education.onlineCourses.forEach(function(course){
-       var $online = $('#education');
+       var $online = $('.education-entry:last');
        $online.append(HTMLonlineTitle.replace('%data%', course.title));
        $online.append(HTMLonlineSchool.replace('%data%', course.school));
        $online.append(HTMLschoolDates.replace('%data%', course.date));

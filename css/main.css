@@ -24,6 +24,11 @@ header {
 
 #projects div {
   display: none;
+  margin-bottom: 40px;
+}
+
+#projects img {
+  margin-left: 20px;
 }
 
 #education div {
