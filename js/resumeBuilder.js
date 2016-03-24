@@ -179,4 +179,4 @@ $('document').ready(function() {
   toggleSection('#education');
 });
 
-// $('#mapdiv').append(googleMap);
+$('#mapDiv').append(googleMap);
