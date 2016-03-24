@@ -1,0 +1,31 @@
+header {
+  background-color: blue;
+}
+
+#topContacts {
+  float: left;
+  margin-top: 20px;
+}
+
+#biopic img {
+  width: 25%;
+  height: auto;
+  margin-top: 10px;
+}
+
+.skills li {
+  font-size: 20px;
+  display: none;
+}
+
+#workExperience div {
+  display: none;
+}
+
+#projects div {
+  display: none;
+}
+
+#education div {
+  display: none;
+}

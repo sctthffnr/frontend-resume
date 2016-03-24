@@ -17,15 +17,17 @@ This is empty on purpose! Your code to build the resume will go here.
                "Networking: TCP/IP, 802.11 protocols"],
    "biopic" : "images/biopic.jpg",
    "display" : function() {
-     $('#header').prepend(HTMLheaderRole.replace('%data%', bio.role));
-     $('#header').prepend(HTMLheaderName.replace('%data%', bio.name));
+     $('.bio').children('div:first').prepend(HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage));
+     $('.bio').children('div:first').prepend(HTMLheaderRole.replace('%data%', bio.role));
+     $('.bio').children('div:first').prepend(HTMLheaderName.replace('%data%', bio.name));
+     $('.bio').children('div:last').append(HTMLbioPic.replace('%data%', bio.biopic));
+
      $('#topContacts').append(HTMLmobile.replace('%data%', bio.contacts.mobile));
      $('#topContacts').append(HTMLemail.replace('%data%', bio.contacts.email));
      $('#topContacts').append(HTMLgithub.replace('%data%', bio.contacts.github));
      $('#topContacts').append(HTMLlocation.replace('%data%', bio.contacts.location));
-     $('#header').append(HTMLbioPic.replace('%data%', bio.biopic));
-     $('#header').append(HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage));
-     $('#header').append(HTMLskillsStart);
+
+     $('.skills').append(HTMLskillsStart);
      bio.skills.forEach(function(skill){
        $('#skills-h3:last').append(HTMLskills.replace('%data%', skill));
      });
@@ -79,7 +81,7 @@ This is empty on purpose! Your code to build the resume will go here.
      });
      $('#education').append(HTMLonlineClasses);
      education.onlineCourses.forEach(function(course){
-       var $online = $('#education h3');
+       var $online = $('#education');
        $online.append(HTMLonlineTitle.replace('%data%', course.title));
        $online.append(HTMLonlineSchool.replace('%data%', course.school));
        $online.append(HTMLschoolDates.replace('%data%', course.date));
@@ -162,4 +164,19 @@ work.display();
 projects.display();
 education.display();
 
-$('#mapdiv').append(googleMap);
+function toggleSection(selector) {
+  $(selector).on('click', 'h2', function() {
+    $(this).closest('div').find('div').slideToggle();
+  });
+}
+
+$('document').ready(function() {
+  $('#skills-h3').click(function() {
+    $(this).find('li').slideToggle();
+  });
+  toggleSection('#workExperience');
+  toggleSection('#projects');
+  toggleSection('#education');
+});
+
+// $('#mapdiv').append(googleMap);
