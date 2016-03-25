@@ -27,7 +27,7 @@ This is empty on purpose! Your code to build the resume will go here.
      $('#topContacts').append(HTMLgithub.replace('%data%', bio.contacts.github));
      $('#topContacts').append(HTMLlocation.replace('%data%', bio.contacts.location));
 
-     $('.skills').append(HTMLskillsStart);
+     $('#skills').append(HTMLskillsStart);
      bio.skills.forEach(function(skill){
        $('#skills-h3:last').append(HTMLskills.replace('%data%', skill));
      });
@@ -163,20 +163,5 @@ bio.display();
 work.display();
 projects.display();
 education.display();
-
-function toggleSection(selector) {
-  $(selector).on('click', 'h2', function() {
-    $(this).closest('div').find('div').slideToggle();
-  });
-}
-
-$('document').ready(function() {
-  $('#skills-h3').click(function() {
-    $(this).find('li').slideToggle();
-  });
-  toggleSection('#workExperience');
-  toggleSection('#projects');
-  toggleSection('#education');
-});
 
 $('#mapDiv').append(googleMap);

@@ -1,5 +1,5 @@
 header {
-  background-color: lightgray;
+  background-color: #c6dabf;
 }
 
 #topContacts {
@@ -13,21 +13,17 @@ header {
   margin-top: 10px;
 }
 
-.skills li {
-  font-size: 20px;
-  display: none;
+
+#skills li {
+  font-size: 16px;
 }
 
 #workExperience {
-  background-color: lightgray;
+  background-color: #c6dabf;
 }
 
-#workExperience div {
-  display: none;
-}
 
 #projects div {
-  display: none;
   margin-bottom: 40px;
 }
 
@@ -36,12 +32,9 @@ header {
 }
 
 #education {
-  background-color: lightgray;
+  background-color: #c6dabf;
 }
 
-#education div {
-  display: none;
-}
 
 #map {
   display: block;
