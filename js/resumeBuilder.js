@@ -72,9 +72,9 @@ This is empty on purpose! Your code to build the resume will go here.
        $('#education').append(HTMLschoolStart);
        var $edEntry = $('.education-entry:last');
        $edEntry.append(HTMLschoolName.replace('%data%', school.name));
+       $edEntry.append(HTMLschoolDegree.replace('%data%', school.degree));
        $edEntry.append(HTMLschoolLocation.replace('%data%', school.location));
        $edEntry.append(HTMLschoolDates.replace('%data%', school.dates));
-       $edEntry.append(HTMLschoolDegree.replace('%data%', school.degree));
        school.majors.forEach(function(major) {
          $edEntry.append(HTMLschoolMajor.replace('%data%', major));
        });
