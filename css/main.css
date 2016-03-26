@@ -3,7 +3,6 @@ header {
 }
 
 #topContacts {
-  float: left;
   margin-top: 20px;
 }
 
@@ -18,21 +17,15 @@ header {
   font-size: 16px;
 }
 
-#workExperience {
+#projects {
   background-color: #c6dabf;
 }
-
-
 #projects div {
   margin-bottom: 20px;
 }
 
 #projects img {
   margin-left: 20px;
-}
-
-#education {
-  background-color: #c6dabf;
 }
 
 
