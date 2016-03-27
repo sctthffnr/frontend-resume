@@ -68,8 +68,9 @@ This is empty on purpose! Your code to build the resume will go here.
      }
    ],
    "display": function display() {
+     $('#schools').append(HTMLschoolTitle);
      education.schools.forEach(function(school) {
-       $('#education').append(HTMLschoolStart);
+       $('#schools').append(HTMLschoolStart);
        var $edEntry = $('.education-entry:last');
        $edEntry.append(HTMLschoolName.replace('%data%', school.name));
        $edEntry.append(HTMLschoolDegree.replace('%data%', school.degree));
@@ -79,8 +80,9 @@ This is empty on purpose! Your code to build the resume will go here.
          $edEntry.append(HTMLschoolMajor.replace('%data%', major));
        });
      });
-     $('.education-entry:last').append(HTMLonlineClasses);
+     $('#online').append(HTMLonlineClasses);
      education.onlineCourses.forEach(function(course){
+       $('#online').append(HTMLschoolStart);
        var $online = $('.education-entry:last');
        $online.append(HTMLonlineTitle.replace('%data%', course.title));
        $online.append(HTMLonlineSchool.replace('%data%', course.school));
