@@ -42,6 +42,20 @@ header {
   padding-bottom: 5%;
 }
 
+#lets-connect {
+  margin-top: 40px;
+  background-color: #c6dabf;
+}
+
+.flex-box {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
 /*.date-text {
   font-style: italic;
   font-size: 14px;

@@ -23,11 +23,13 @@ This is empty on purpose! Your code to build the resume will go here.
      $bioEntry.prepend(HTMLheaderName.replace('%data%', bio.name));
      $('.bio').children('div:last').append(HTMLbioPic.replace('%data%', bio.biopic));
 
-     $contacts = $('#topContacts');
-     $contacts.append(HTMLmobile.replace('%data%', bio.contacts.mobile));
-     $contacts.append(HTMLemail.replace('%data%', bio.contacts.email));
-     $contacts.append(HTMLgithub.replace('%data%', bio.contacts.github));
-     $contacts.append(HTMLlocation.replace('%data%', bio.contacts.location));
+     var contacts = [$('#topContacts'), $('#footerContacts')];
+     contacts.forEach(function(contactItem) {
+       contactItem.append(HTMLmobile.replace('%data%', bio.contacts.mobile));
+       contactItem.append(HTMLemail.replace('%data%', bio.contacts.email));
+       contactItem.append(HTMLgithub.replace('%data%', bio.contacts.github));
+       contactItem.append(HTMLlocation.replace('%data%', bio.contacts.location));
+     });
 
      $('#skills').append(HTMLskillsStart);
      bio.skills.forEach(function(skill){
