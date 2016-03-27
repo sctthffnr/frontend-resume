@@ -17,15 +17,17 @@ This is empty on purpose! Your code to build the resume will go here.
                "Networking: TCP/IP, 802.11 protocols"],
    "biopic" : "images/biopic.jpg",
    "display" : function() {
-     $('.bio').children('div:first').prepend(HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage));
-     $('.bio').children('div:first').prepend(HTMLheaderRole.replace('%data%', bio.role));
-     $('.bio').children('div:first').prepend(HTMLheaderName.replace('%data%', bio.name));
+     var $bioEntry = $('.bio').children('div:first');
+     $bioEntry.prepend(HTMLwelcomeMsg.replace('%data%', bio.welcomeMessage));
+     $bioEntry.prepend(HTMLheaderRole.replace('%data%', bio.role));
+     $bioEntry.prepend(HTMLheaderName.replace('%data%', bio.name));
      $('.bio').children('div:last').append(HTMLbioPic.replace('%data%', bio.biopic));
 
-     $('#topContacts').append(HTMLmobile.replace('%data%', bio.contacts.mobile));
-     $('#topContacts').append(HTMLemail.replace('%data%', bio.contacts.email));
-     $('#topContacts').append(HTMLgithub.replace('%data%', bio.contacts.github));
-     $('#topContacts').append(HTMLlocation.replace('%data%', bio.contacts.location));
+     $contacts = $('#topContacts');
+     $contacts.append(HTMLmobile.replace('%data%', bio.contacts.mobile));
+     $contacts.append(HTMLemail.replace('%data%', bio.contacts.email));
+     $contacts.append(HTMLgithub.replace('%data%', bio.contacts.github));
+     $contacts.append(HTMLlocation.replace('%data%', bio.contacts.location));
 
      $('#skills').append(HTMLskillsStart);
      bio.skills.forEach(function(skill){
