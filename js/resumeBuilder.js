@@ -116,15 +116,12 @@ This is empty on purpose! Your code to build the resume will go here.
        $('#workExperience').append(HTMLworkStart);
        formattedEmployer = HTMLworkEmployer.replace('%data%', job.employer);
        formattedTitle = HTMLworkTitle.replace('%data%', job.title);
-       formattedDates = HTMLworkDates.replace('%data%', job.dates);
-       formattedLocation  = HTMLworkLocation.replace('%data%', job.location);
-       formattedDescription = HTMLworkDescription.replace('%data%', job.description);
 
        var $work_entry = $('.work-entry:last');
        $work_entry.append(formattedEmployer + formattedTitle);
-       $work_entry.append(formattedDates);
-       $work_entry.append(formattedLocation);
-       $work_entry.append(formattedDescription);
+       $work_entry.append(HTMLworkDates.replace('%data%', job.dates));
+       $work_entry.append(HTMLworkLocation.replace('%data%', job.location));
+       $work_entry.append(HTMLworkDescription.replace('%data%', job.description));
      });
    }
  };
