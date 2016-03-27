@@ -145,14 +145,11 @@ This is empty on purpose! Your code to build the resume will go here.
  "display" : function display() {
    projects.projects.forEach(function(project) {
      $('#projects').append(HTMLprojectStart);
-     formattedTitle = HTMLprojectTitle.replace('%data%', project.title);
-     formattedDates = HTMLprojectDates.replace('%data%', project.dates);
-     formattedDescription = HTMLprojectDescription.replace('%data%', project.description);
 
      var $projects = $('.project-entry:last');
-     $projects.append(formattedTitle);
-     $projects.append(formattedDates);
-     $projects.append(formattedDescription);
+     $projects.append(HTMLprojectTitle.replace('%data%', project.title));
+     $projects.append(HTMLprojectDates.replace('%data%', project.dates));
+     $projects.append(HTMLprojectDescription.replace('%data%', project.description));
      project.images.forEach(function(image) {
        $projects.append(HTMLprojectImage.replace('%data%', image));
      });
