@@ -17,6 +17,9 @@ header {
   margin-top: 10px;
 }
 
+#workExperience p {
+  font-style: italic;
+}
 
 #skills li {
   font-size: 16px;
@@ -25,6 +28,7 @@ header {
 #projects {
   background-color: #c6dabf;
 }
+
 #projects div {
   margin-bottom: 20px;
 }
@@ -60,20 +64,3 @@ header {
   justify-content: space-around;
   padding: 10px;
 }
-
-/*.date-text {
-  font-style: italic;
-  font-size: 14px;
-  color: #999;
-  line-height: 16px;
-  float: left;
-}
-
-.location-text {
-  font-style: italic;
-  font-size: 14px;
-  color: #999;
-  line-height: 16px;
-  float: right;
-
-}*/

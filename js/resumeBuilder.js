@@ -31,9 +31,9 @@ This is empty on purpose! Your code to build the resume will go here.
        contactItem.append(HTMLlocation.replace('%data%', bio.contacts.location));
      });
 
-     $('#skills').append(HTMLskillsStart);
+     $('#skillsList').append(HTMLskillsStart);
      bio.skills.forEach(function(skill){
-       $('#skills-h3:last').append(HTMLskills.replace('%data%', skill));
+       $('#skills').append(HTMLskills.replace('%data%', skill));
      });
    }
  };
