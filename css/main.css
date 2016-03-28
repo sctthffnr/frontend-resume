@@ -1,5 +1,10 @@
+nav {
+  margin: 10px;
+}
+
 header {
   background-color: #c6dabf;
+  padding: 10px;
 }
 
 #topContacts {
