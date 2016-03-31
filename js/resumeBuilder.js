@@ -6,7 +6,7 @@ This is empty on purpose! Your code to build the resume will go here.
    "name" : "Scott Heffner",
    "role" : "Network and Systems Administrator",
    "contacts" : {
-     "mobile" : "(978) 503-2705",
+     "mobile" : "(555) 555-2705",
      "email" : "scott.thomas.heffner@gmail.com",
      "github" : "sctthffnr",
      "location" : "Gardner, Massachusetts"
@@ -110,7 +110,7 @@ This is empty on purpose! Your code to build the resume will go here.
        "title": "Network and Systems Administrator",
        "location": "Carlisle, MA",
        "dates": "in progress",
-       "description": "Manage configuration, deployment, and management of network and compute systems"
+       "description": "In charge of managing configuration, deployment, and management of network and compute systems"
      }
    ],
    "display": function display() {

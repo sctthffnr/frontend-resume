@@ -26,11 +26,15 @@ header {
 }
 
 #skills li {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 #projects {
   background-color: #c6dabf;
+}
+
+#projects h2 {
+  padding-top: 20px;
 }
 
 #projects div {
@@ -38,8 +42,20 @@ header {
 }
 
 #projects img {
-  margin-left: 20px;
+  margin: auto;
   padding-bottom: 10px;
+}
+
+#projects p {
+  font-size: 16px;
+}
+
+.project-entry a {
+  font-size: 24px;
+}
+
+.project-entry .date-text {
+  font-size: 20px;
 }
 
 .education-entry {
@@ -59,7 +75,7 @@ header {
 }
 
 #lets-connect {
-  margin-top: 40px;
+  margin-top: 20px;
   background-color: #c6dabf;
 }
 
@@ -70,4 +86,16 @@ header {
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 10px;
+}
+
+@media screen and (max-device-width: 479px) {
+  #lets-connect {
+    margin-top: 100px;
+  }
+}
+
+@media screen and (min-device-width: 480px) and (max-device-width: 768px) {
+  #lets-connect {
+    margin-top: 60px;
+  }
 }
